@@ -1,0 +1,49 @@
+.infoblock {
+  background-color: #f9f7f2;
+  border-left: 0.4rem solid #9e8f6a;
+  padding: 2rem 2.5rem;
+  margin: 4rem auto;
+  max-width: 60rem;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.04);
+  border-radius: 0.2rem;
+}
+
+.infoblock h3 {
+  font-family: "new-order", sans-serif;
+  font-weight: 400;
+  font-size: 1.6rem;
+  color: #988d70;
+  text-transform: uppercase;
+  margin-bottom: 1rem;
+  letter-spacing: 0.02rem;
+}
+
+.infoblock ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0 0 1.5rem 0;
+}
+
+.infoblock li {
+  margin-bottom: 1.2rem;
+  font-size: 1.2rem;
+  color: #59627a;
+  font-family: "gelica", sans-serif;
+  font-weight: 200;
+  line-height: 1.5;
+  letter-spacing: 0.03rem;
+}
+
+.infoblock li strong {
+  color: #6e6448;
+  font-weight: 600;
+}
+
+.infoblock p {
+  font-size: 1.1rem;
+  color: #6a6a6a;
+  font-style: italic;
+  font-family: "gelica", sans-serif;
+  margin-top: 1rem;
+  line-height: 1.4;
+}
