@@ -65,11 +65,9 @@ body h1, h2, h3 {
 
 .header-inner {
   display: flex;
-  align-items: center;
   justify-content: space-between;
   gap: 2rem;
   padding: 0.5rem 2rem;
-  box-sizing: border-box;
 }
 
 .header-logo {
