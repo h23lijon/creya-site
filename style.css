@@ -36,12 +36,28 @@ body h1, h2, h3 {
   padding-bottom: 0.5rem;
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   z-index: 1000;
   transition: background-color 0.3s ease, box-shadow 0.3s ease, padding 0.3s ease;
 }
 
-.site-header.scrolled,
+.site-header.scrolled {
+  background-color: rgba(240, 235, 229, 0.85);
+  box-shadow: 0 0.125rem 0.375rem rgba(3, 3, 3, 0.04);
+}
+
+.site-header.scrolled .navbar a,
+.site-header.hover-scrolled .navbar a {
+  color: #9e8f6a;
+  transition: color 0.3s ease;
+}
+
+.site-header.scrolled .navbar a::after,
+.site-header.hover-scrolled .navbar a::after {
+  background-color: #9e8f6a;
+}
+
 .site-header.hover-scrolled {
   background-color: rgba(240, 235, 229, 0.85);
   box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.04);
@@ -53,9 +69,7 @@ body h1, h2, h3 {
   justify-content: space-between;
   gap: 2rem;
   padding: 0.5rem 2rem;
-  max-width: 1200px;
-  margin: 0 auto;
-  width: 100%;
+  box-sizing: border-box;
 }
 
 .header-logo {
@@ -63,20 +77,40 @@ body h1, h2, h3 {
   margin: 0;
   padding: 0;
   transition: opacity 0.6s ease;
-  flex-shrink: 0;
+  align-items: left;
+}
+
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  cursor: pointer;
+  position: absolute;
+  right: 1.5rem;
+  top: 1.5rem;
+}
+
+.menu-toggle span {
+  height: 0.2rem;
+  width: 1.5rem;
+  background-color: #F0EBE5;
+  margin: 0.25rem 0;
+  border-radius: 0.5rem;
 }
 
 .navbar {
-  display: flex;
-  justify-content: flex-end;
-  align-items: center;
-  font-family: "r-l-limo", sans-serif;
-  background-color: transparent;
-  transition: background-color 0.3s ease;
   margin: 0;
   padding: 0;
   width: 100%;
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 4rem;
+  font-family: "r-l-limo", sans-serif;
+  background-color: transparent;
+  transition: background-color 0.3s ease;
 }
+
+
+
 
 .navbar ul {
   list-style: none;
@@ -115,15 +149,6 @@ body h1, h2, h3 {
   width: 100%;
 }
 
-.site-header.scrolled .navbar a,
-.site-header.hover-scrolled .navbar a {
-  color: #9e8f6a;
-}
-
-.site-header.scrolled .navbar a::after,
-.site-header.hover-scrolled .navbar a::after {
-  background-color: #9e8f6a;
-}
 /* === Hero + Intro === */
 .hero-section {
   background-image: url(img/bg2.jpg); 
