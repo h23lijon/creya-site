@@ -1,0 +1,112 @@
+.body .subpage {
+  background-color: #F0EBE5;
+  margin: 5 rem 0;
+  
+}
+
+.subpage .site-header {
+  background-color: #F0EBE5;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.subpage .navbar a {
+  color: #9e8f6a; /* valfri kontrastfärg mot beige */
+}
+
+.subpage .navbar a::after {
+  background-color: #9e8f6a;
+}
+
+.tillbaka-lank {
+  display: inline-block;
+  margin-left: 4.5rem;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #9e8f6a;
+  border: none;
+  border-radius: 4px;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.tillbaka-lank2 {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #9e8f6a;
+  border: none;
+  text-decoration: none;
+  text-align: center;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.tillbaka-lank:hover {
+
+  color: #5e5642;
+}
+
+.tillbaka-lank2:hover {
+
+  color: #5e5642;
+}
+
+.about-section .om-text {
+  font-family: "gelica", sans-serif;
+  font-weight: 200;
+  font-style: normal;
+  font-size: 1.1rem;
+  margin-top: 0.5rem;
+  color: #59627a;
+  line-height: 1.3;
+  letter-spacing: 0.03rem;
+  width: 80%;
+
+}
+.about-image-portrait {
+  width: 70%;
+  max-width: 400px;
+  height: auto;
+  aspect-ratio: 4 / 3.8; /* bredare än högt */
+  object-fit: cover;
+  border-top-left-radius: 120%;
+  border-top-right-radius: 120%;
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+  margin-top: 5.5rem;
+}
+.kontakt-knapp6 {
+  display: inline-flex;         
+  justify-content: center;
+  align-items: center;       
+  text-align: center;           
+  margin: 1.5rem 0;
+  padding: 1rem 2rem;
+  border: 0.01rem solid #9e8f6a;
+  border-radius: 0.05rem;
+  box-shadow: 0 2px 4px rgba(158, 143, 106, 0.15);
+  width: 10rem;
+  background-color: transparent;
+  color: #9e8f6a;
+  text-transform: uppercase;
+  font-family: inherit;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  white-space: nowrap;
+}
+
+.kontakt-knapp6:hover {
+  background-color: rgba(214, 156, 156, 0.2);
+  transition: cubic-bezier(0.075, 0.82, 0.165, 1);
+}
+
+/* Mobilanpassning */
+@media (max-width: 768px) {
+
+}
+

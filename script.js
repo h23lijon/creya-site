@@ -1,0 +1,101 @@
+document.addEventListener('DOMContentLoaded', function () {
+    const toggle = document.querySelector('.menu-toggle');
+    const nav = document.querySelector('.navbar ul');
+  
+    toggle.addEventListener('click', function () {
+      nav.classList.toggle('active');
+    });
+  });
+  
+
+  //navbaren vid scroll//
+
+const hero = document.querySelector('.hero-section');
+const header = document.querySelector('.site-header');
+const logo = document.querySelector('.header-logo');
+
+// Scroll: lägger till 'scrolled' klass och byter logga
+window.addEventListener('scroll', () => {
+  const heroBottom = hero.getBoundingClientRect().bottom;
+
+  if (heroBottom <= 0) {
+    header.classList.add('scrolled');
+    header.classList.remove('hover-scrolled'); // ta bort ev. hoverklass
+    if (logo) logo.src = 'img/creya6.svg';
+  } else {
+    header.classList.remove('scrolled');
+    if (logo) logo.src = 'img/cre.svg';
+  }
+});
+
+// Hover: lägg till 'hover-scrolled' och byt logga till blå
+header.addEventListener('mouseenter', () => {
+  if (!header.classList.contains('scrolled')) {
+    header.classList.add('hover-scrolled');
+    if (logo) logo.src = 'img/creya6.svg';
+  }
+});
+
+// Tar bort hoverklass och byt tillbaka till vit logga om i hero
+header.addEventListener('mouseleave', () => {
+  header.classList.remove('hover-scrolled');
+  const heroBottom = hero.getBoundingClientRect().bottom;
+  if (heroBottom > 0 && logo) {
+    logo.src = 'img/cre.svg';
+  }
+});
+
+
+  const container = document.querySelector('.steps-container');
+  const indicators = document.querySelectorAll('.step-indicators span');
+  const steps = document.querySelectorAll('.step');
+
+  function updateIndicators() {
+    const scrollLeft = container.scrollLeft;
+    const stepWidth = steps[0].offsetWidth + 32; // 32 = gap (2rem)
+    const index = Math.round(scrollLeft / stepWidth);
+
+    indicators.forEach((dot, i) => {
+      dot.classList.toggle('active', i === index);
+    });
+  }
+
+  container.addEventListener('scroll', () => {
+    window.requestAnimationFrame(updateIndicators);
+  });
+
+  // initial set
+  updateIndicators();
+
+  // Öppna/stäng formulär-modal
+function openFormModal() {
+  document.getElementById("formModal").style.display = "flex";
+}
+
+function closeFormModal() {
+  document.getElementById("formModal").style.display = "none";
+}
+
+// Hantera formulär-sändning
+document.getElementById("contactForm").addEventListener("submit", function (e) {
+  e.preventDefault();
+  closeFormModal();
+  document.getElementById("thankModal").style.display = "flex";
+});
+
+function closeThankModal() {
+  document.getElementById("thankModal").style.display = "none";
+}
+
+const textarea = document.getElementById("meddelande");
+const charCount = document.getElementById("charCount");
+
+textarea.addEventListener("input", () => {
+  const remaining = 200 - textarea.value.length;
+  charCount.textContent = `${remaining} tecken kvar`;
+});
+textarea.addEventListener("input", () => {
+  const remaining = 200 - textarea.value.length;
+  charCount.textContent = `${remaining} tecken kvar`;
+  charCount.style.color = remaining < 20 ? "#b30000" : "#666";
+});
