@@ -93,9 +93,59 @@ const charCount = document.getElementById("charCount");
 textarea.addEventListener("input", () => {
   const remaining = 200 - textarea.value.length;
   charCount.textContent = `${remaining} tecken kvar`;
-});
-textarea.addEventListener("input", () => {
-  const remaining = 200 - textarea.value.length;
-  charCount.textContent = `${remaining} tecken kvar`;
   charCount.style.color = remaining < 20 ? "#b30000" : "#666";
 });
+// Stäng modal när man klickar utanför innehållet
+document.getElementById("formModal").addEventListener("click", function (e) {
+  // Kolla om man klickar på själva overlayen (och inte innehållet)
+  if (e.target === this) {
+    closeFormModal();
+  }
+});
+
+document.getElementById("thankModal").addEventListener("click", function (e) {
+  if (e.target === this) {
+    closeThankModal();
+  }
+});
+
+document.getElementById("openFormButton").addEventListener("click", openFormModal);
+
+document.getElementById("resetForm").addEventListener("click", () => {
+  document.getElementById("contactForm").reset();
+
+  // Återställ charCount
+  const charCount = document.getElementById("charCount");
+  if (charCount) charCount.textContent = "200 tecken kvar";
+});
+
+const slides = document.querySelectorAll(".slide");
+const slideshow = document.getElementById("slideshow");
+let currentSlide = 0;
+let paused = false;
+let interval;
+
+function showSlide(index) {
+  slides.forEach((slide, i) => {
+    slide.classList.toggle("active", i === index);
+  });
+}
+
+function nextSlide() {
+  if (!paused) {
+    currentSlide = (currentSlide + 1) % slides.length;
+    showSlide(currentSlide);
+  }
+}
+
+function startSlideshow() {
+  interval = setInterval(nextSlide, 3000); // 3 sek per slide
+}
+
+function togglePause() {
+  paused = !paused;
+}
+
+slideshow.addEventListener("click", togglePause);
+
+startSlideshow();
