@@ -6,6 +6,67 @@ document.addEventListener('DOMContentLoaded', function () {
       nav.classList.toggle('active');
     });
   });
+
+(function () {
+  const OVERLAY_ID = 'introOverlay';
+  const VIDEO_ID = 'introVideo';
+  const SKIP_ID = 'skipBtn';
+  const FLAG = 'introPlayedThisSession';
+
+  const overlay = document.getElementById(OVERLAY_ID);
+  const video = document.getElementById(VIDEO_ID);
+  const skip = document.getElementById(SKIP_ID);
+
+  if (!overlay || !video) return;
+
+  const alreadyPlayed = sessionStorage.getItem(FLAG) === '1';
+
+  function hideOverlay() {
+    overlay.classList.add('is-hidden');
+    overlay.setAttribute('aria-hidden', 'true');
+  }
+
+  function markPlayed() {
+    try { sessionStorage.setItem(FLAG, '1'); } catch (_) {}
+  }
+
+  if (!alreadyPlayed) {
+    // Första gången i sessionen – spela upp videon
+    video.muted = true;
+    video.play().catch(() => {});
+    markPlayed();
+  } else {
+    // Redan spelad – dölj overlay direkt
+    hideOverlay();
+  }
+
+  video.addEventListener('ended', hideOverlay);
+
+  if (skip) skip.addEventListener('click', hideOverlay);
+
+  // Klick på overlay för att stänga
+  overlay.addEventListener('click', (e) => {
+    if (e.target !== skip) hideOverlay();
+  });
+
+  // Stäng om man klickar/fokuserar i ett formulärfält
+  function shouldDismissOn(el) {
+    if (!el) return false;
+    if (el.matches('input, textarea, select')) return true;
+    if (el.isContentEditable) return true;
+    return false;
+  }
+
+  document.addEventListener('focusin', (e) => {
+    if (shouldDismissOn(e.target)) hideOverlay();
+  });
+
+  document.addEventListener('click', (e) => {
+    if (shouldDismissOn(e.target)) hideOverlay();
+  });
+
+})();
+
   
 
   //navbaren vid scroll//

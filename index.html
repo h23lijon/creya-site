@@ -15,7 +15,19 @@
   <script src="script.js" defer></script>
 </head>
 <body>
+   <div id="introOverlay" class="intro-overlay" aria-hidden="false" role="dialog" aria-label="Introvideo">
+    <video id="introVideo"
+           class="intro-video"
+           muted
+           playsinline
+           preload="auto"
+           src="/media/intro.mp4"
+           poster="/media/intro-poster.jpg">
+    </video>
+    <button id="skipBtn" class="skip-btn" type="button">Hoppa över</button>
+  </div>
 
+<div class="page-container"></div>
 <header class="site-header">
   <div class="container">
     <div class="header-inner">
@@ -28,13 +40,14 @@
           <li><a href="about.html">Om</a></li>
           <li><a href="gd.html">Grafisk Design</a></li>
           <li><a href="ux.html">UX</a></li>
-          <li><a href="webb.html">Webb</a></li>
-          <li><a href="ill.html">Illustration</a></li>
+        <!-- <li><a href="webb.html">Webb</a></li>
+          <li><a href="ill.html">Illustration</a></li>-->
         </ul>
       </nav>
     </div>
   </div>
 </header>
+
   <div class="header-spacer" aria-hidden="true"></div>
 
   <!-- Hero Section -->
@@ -276,8 +289,11 @@
 
     <div class="footer-copy">© 2025 Créya</div>
   </div>-->
+
 </footer>
   <a href="#top" class="top-button">
   <img src="img/top.svg" alt="Till toppen" />
+</a>
+</div> <!-- End of page-container -->
 </body>
 </html>

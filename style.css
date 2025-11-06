@@ -4,6 +4,83 @@
   padding: 0; 
   box-sizing: border-box;
 }  
+
+:root { --fade: 320ms; }
+html, body { height: 100%; margin: 0; }
+body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+
+/* Fullskärms-overlay för videon */
+.intro-overlay {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  background: #000;
+  opacity: 1;
+  visibility: visible;
+  transition: opacity var(--fade) ease, visibility var(--fade) ease;
+}
+
+/* Helt dold */
+.intro-overlay.is-hidden {
+  opacity: 0;
+  visibility: hidden;
+  pointer-events: none;
+}
+
+/* Återbesök i samma session:
+   visa lagret (stillbild) men släpp igenom klick så man kan interagera under. */
+.intro-overlay.is-returning {
+  pointer-events: none;           /* låter dig klicka på fält under */
+  background: rgba(0,0,0,0.0);    /* valfritt: gör bakgrunden transparent */
+}
+
+.intro-video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover; /* fyll hela skärmen */
+}
+
+/* Skip-knapp för tillgänglighet */
+.skip-btn {
+  position: absolute;
+  right: 1rem;
+  bottom: 1rem;
+  background: rgba(255,255,255,0.92);
+  color: #111;
+  border: 0;
+  padding: .6rem .9rem;
+  border-radius: .6rem;
+  font-weight: 600;
+  cursor: pointer;
+}
+.skip-btn:focus-visible { outline: 3px solid #2a7cff; outline-offset: 2px; }
+
+/* Exempel-innehåll under videon */
+.page {
+  min-height: 100%;
+  display: grid;
+  place-items: center;
+  padding: 2rem;
+}
+.card {
+  max-width: 56rem;
+  width: 100%;
+  border: 1px solid #e5e7eb;
+  border-radius: 1rem;
+  padding: 2rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,.06);
+}
+.field { margin-top: 1rem; }
+label { display: block; font-weight: 600; margin-bottom: .4rem; }
+input {
+  width: 100%;
+  padding: .8rem 1rem;
+  border: 1px solid #cbd5e1;
+  border-radius: .6rem;
+  font-size: 1rem;
+}
 /*Blå: #2D5562
 Beige: #8f815e
 */
@@ -21,6 +98,12 @@ body {
   color: #333;
   background-color: #F0EBE5;
 
+}
+
+.page-container {
+  max-width: 1200px;   /* styr hur bred sidan kan bli */
+  margin: 0 auto;      /* centrerar allt */
+  padding: 0 2rem;     /* sidmarginaler höger/vänster */
 }
 
 
