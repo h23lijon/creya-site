@@ -428,6 +428,30 @@ button:hover {
   margin-top: 2rem;
 }
 
+.kontakt-knapp-modal {
+  display: inline-block;
+  padding: 1rem 2rem;
+  border: 0.01rem solid #876E6E;
+  border-radius: 0.05rem;
+  background-color: transparent;
+  color: #876E6E;
+  text-transform: uppercase;
+  font-family: "r-l-limo", sans-serif;
+  font-weight: 600;
+  font-size: 16px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  width: 150px;
+  text-align: center;
+  margin-top: 2rem;
+  margin-left: 6rem;
+}
+
+.kontakt-knapp-modal:hover {
+  background-color: #876E6E;
+  color: white;
+}
 .kontakt-knapp:hover {
   background-color:#382E2E;
   color: #fff;
