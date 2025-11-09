@@ -1,6 +1,6 @@
 /* === Grund === 
 #7B6565 grundlila
-#433737 - rubriker
+rubriker - 876E6E
 h4 - 655353
 hover o brödtext #382E2E
 footer - #2D2525*/
@@ -109,7 +109,7 @@ body {
 .page-container {
   max-width: 1200px;   /* styr hur bred sidan kan bli */
   margin: 0 auto;      /* centrerar allt */
-  padding: 0 2rem;     /* sidmarginaler höger/vänster */
+  padding: 0 4rem;     /* sidmarginaler höger/vänster */
 }
 
 
@@ -147,7 +147,7 @@ body h1, h2, h3 {
 
 .site-header.scrolled .navbar a,
 .site-header.hover-scrolled .navbar a {
-  color: #8f815e;
+  color: #F0EBE5; 
   transition: color 0.3s ease;
 }
 
@@ -311,7 +311,7 @@ body h1, h2, h3 {
   font-family: "new-order", sans-serif;
   font-weight: 400;
   font-size: 2rem;
-  color: #705C5C;
+  color: #7B6565;
   margin-bottom: 0.5rem;
   /*text-transform: uppercase;*/
 }
@@ -731,7 +731,7 @@ button:hover {
   font-weight: 500;
   font-style: normal;
   font-size: 1.5rem;
-  color: #705C5C;
+  color: #7B6565;
   margin-bottom: 0.6rem;
   letter-spacing: 0.03rem;
 }
@@ -942,8 +942,9 @@ font-style: normal;
 }
 
 .footer-nav a {
-  color: #fff;
+  color: #F0EBE5;
   text-decoration: none;
+  letter-spacing: 0.05rem;
   font-size: 0.85rem;
   font-weight: 600;
   text-transform: uppercase;
@@ -957,8 +958,8 @@ font-style: normal;
   left: 0;
   bottom: -3px;
   width: 0%;
-  height: 2px;
-  background-color: #59627a;
+  height: 1px;
+  background-color: #F0EBE5;
   transition: width 0.3s ease;
 }
 
