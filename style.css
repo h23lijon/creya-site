@@ -673,10 +673,10 @@ button:hover {
 .card-container {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  column-gap: 3rem;
+  column-gap: 1.5rem;
   row-gap: 6rem;
   margin: 1rem 6rem;
-  padding-bottom: 6rem;
+  padding-bottom: 3rem;
 }
 
 .feature-card {
@@ -719,7 +719,7 @@ button:hover {
 
 .feature-card-content h4 {
   font-size: 0.85rem;
-  color: #655353;
+  color: #9A8484;
   text-transform: uppercase;
   margin-bottom: 0.3rem;
   font-weight: 600;
@@ -914,7 +914,7 @@ font-style: normal;
 }
 
 .spacer {
-  height: 8rem;
+  height: 3rem;
 }
 
 
