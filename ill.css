@@ -3,7 +3,7 @@
   background-image: url(img/bg2.jpg);
   background-size: cover;
   background-position: center;
-  min-height: 55vh;          /* lägre än startsidan */
+  min-height: 55vh;          
   width: 100%;
   display: flex;
   position: relative;
@@ -13,9 +13,9 @@
 }
 
 .hero-content-ill {
-  background-color: rgba(56, 46, 46, 0.9);  /* samma ton som index */
+  background-color: rgba(56, 46, 46, 0.9);
   width: 100%;
-  min-height: 55vh;          /* matchar sektionen */
+  min-height: 55vh;
   display: flex;
   align-items: flex-end;
   justify-content: flex-end;
@@ -25,13 +25,20 @@
 
 .intro-text-ill {
   text-align: right;
-  margin: 6rem 5rem 6rem 5rem;  /* mindre vertikalt än index */
+  margin: 6rem 5vw; 
+}
+
+.intro-text-ill h1,
+.intro-text-ill p {
+  display: inline-block;
+  text-align: right;
+  margin-right: 0; 
 }
 
 .intro-text-ill h1 {
-  font-size: 3rem;            /* ≈3rem enligt önskemål */
+  font-size: 3rem;          
   color: #F0EBE5;
-  text-transform: uppercase;  /* OBS: text-transform, inte transform */
+  text-transform: uppercase;  
   font-family: "r-l limo", sans-serif;
   font-weight: 900;
   font-style: normal;
@@ -43,15 +50,24 @@
   letter-spacing: 0.03rem;
   color: #F0EBE5;
   margin-top: .5rem;
+  max-width: clamp(20ch, 24vw, 30ch);
 }
 
-/* Responsivt – dra ner rubriken lite på små skärmar */
+/* Responsivt – justerar högerkanten och textstorlek */
 @media (max-width: 600px) {
   .hero-section-ill,
   .hero-content-ill { min-height: 48vh; }
 
-  .intro-text-ill { margin: 3rem 1.25rem; }
+  .intro-text-ill {
+    margin: 3rem 6vw; 
+  }
 
-  .intro-text-ill h1 { font-size: 2.2rem; }
-  .intro-text-ill p { font-size: 1.05rem; }
+  .intro-text-ill h1 {
+    font-size: 2.2rem;
+  }
+
+  .intro-text-ill p {
+    font-size: 1.05rem;
+    max-width: 26ch; 
+  }
 }

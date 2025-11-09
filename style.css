@@ -8,7 +8,22 @@ footer - #2D2525*/
   margin: 0;
   padding: 0; 
   box-sizing: border-box;
-}  
+} 
+
+
+/*ta ev bort ----------------------*/
+:root{
+  --maxw: 1200px;
+  --gutter: 0rem;  /* ändra till 4rem om du vill ha större sidmarginal */
+}
+.container,
+.page-container,
+.footer-container{
+  max-width: var(--maxw);
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
 
 :root { --fade: 320ms; }
 html, body { height: 100%; margin: 0; }
@@ -108,8 +123,7 @@ body {
 
 .page-container {
   max-width: 1200px;   /* styr hur bred sidan kan bli */
-  margin: 0 auto;      /* centrerar allt */
-  padding: 0 4rem;     /* sidmarginaler höger/vänster */
+  padding: 0 8rem;     /* sidmarginaler höger/vänster */
 }
 
 
@@ -123,7 +137,7 @@ body h1, h2, h3 {
 /* === Header och navbar === */
 .site-header {
   background-color: transparent;
-  padding-top: 0.5rem;
+  padding-top: 1rem;
   padding-bottom: 0.5rem;
   position: fixed;
   top: 0;
@@ -134,10 +148,7 @@ body h1, h2, h3 {
 }
 
 .container {
-  max-width: 1200px;
-  padding-left: -6rem;
-  padding-right: 4rem;
-  margin: 0 auto;
+
   width: 100%;
 }
 .site-header.scrolled {
@@ -172,7 +183,7 @@ body h1, h2, h3 {
   max-height: 4rem;
   display: block;
   height: auto;
-  padding-right: 35rem;
+
 }
 
 .menu-toggle {
@@ -207,7 +218,7 @@ body h1, h2, h3 {
   list-style: none;
   display: flex;
   justify-content: flex-end;
-  gap: 3rem;
+  gap: 5rem;
   padding: 0.5rem 0;
   margin: 0;
 }
