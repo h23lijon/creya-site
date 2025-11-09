@@ -49,6 +49,80 @@
   max-width: clamp(20ch, 24vw, 30ch);
   text-align: right; /* säkerställer högerjusterad text */
 }
+.feature-card img{
+  width: 100%;
+  height: clamp(240px, 30vw, 420px); /* jämn höjd över korten */
+  object-fit: cover;                 /* fyll kortet, beskär snyggt */
+  object-position: center;
+  display: block;
+}
+/* === Slideshow inuti feature-card === */
+.card-slider {
+  position: relative;
+  width: 100%;
+  aspect-ratio: 16 / 10;      /* ger stabil höjd; byt vid behov */
+  overflow: hidden;
+  border-radius: 0.05rem;
+}
+
+.card-slide {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0;
+  transition: opacity .5s ease;
+  will-change: opacity;
+}
+
+.card-slide.active { opacity: 1; }
+
+/* Piltangenter */
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  border: 0;
+  background: rgba(0,0,0,0.35);
+  color: #F0EBE5;
+  width: 2rem;
+  height: 2rem;
+  line-height: 2rem;
+  text-align: center;
+  border-radius: 999px;
+  cursor: pointer;
+  font-size: 1.2rem;
+  user-select: none;
+}
+
+.slider-btn:hover { background: rgba(0,0,0,0.5); }
+
+.slider-btn.prev { left: .6rem; }
+.slider-btn.next { right: .6rem; }
+
+/* Dots */
+.slider-dots {
+  position: absolute;
+  bottom: .5rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: .4rem;
+}
+
+.slider-dots button {
+  width: .5rem;
+  height: .5rem;
+  border-radius: 50%;
+  border: 0;
+  background: rgba(255,255,255,0.55);
+  cursor: pointer;
+}
+
+.slider-dots button.is-active {
+  background: rgba(255,255,255,0.95);
+}
 
 /* Responsivt */
 @media (max-width: 600px) {

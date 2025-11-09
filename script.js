@@ -105,28 +105,6 @@ header.addEventListener('mouseleave', () => {
   }
 });
 
-
-  const container = document.querySelector('.steps-container');
-  const indicators = document.querySelectorAll('.step-indicators span');
-  const steps = document.querySelectorAll('.step');
-
-  function updateIndicators() {
-    const scrollLeft = container.scrollLeft;
-    const stepWidth = steps[0].offsetWidth + 32; // 32 = gap (2rem)
-    const index = Math.round(scrollLeft / stepWidth);
-
-    indicators.forEach((dot, i) => {
-      dot.classList.toggle('active', i === index);
-    });
-  }
-
-  container.addEventListener('scroll', () => {
-    window.requestAnimationFrame(updateIndicators);
-  });
-
-  // initial set
-  updateIndicators();
-
   // Öppna/stäng formulär-modal
 function openFormModal() {
   document.getElementById("formModal").style.display = "flex";
@@ -179,33 +157,62 @@ document.getElementById("resetForm").addEventListener("click", () => {
   if (charCount) charCount.textContent = "200 tecken kvar";
 });
 
-const slides = document.querySelectorAll(".slide");
-const slideshow = document.getElementById("slideshow");
-let currentSlide = 0;
-let paused = false;
-let interval;
+// === Mini-slider för feature-cards ===
+(function initCardSliders() {
+  const sliders = document.querySelectorAll('.card-slider');
+  if (!sliders.length) return;
 
-function showSlide(index) {
-  slides.forEach((slide, i) => {
-    slide.classList.toggle("active", i === index);
+  sliders.forEach((slider) => {
+    const slides = Array.from(slider.querySelectorAll('.card-slide'));
+    if (slides.length <= 1) return;
+
+    const prevBtn = slider.querySelector('.slider-btn.prev');
+    const nextBtn = slider.querySelector('.slider-btn.next');
+    const dotsWrap = slider.querySelector('.slider-dots');
+
+    let index = slides.findIndex(s => s.classList.contains('active'));
+    if (index === -1) index = 0;
+
+    // Bygg dots
+    const dots = slides.map((_, i) => {
+      const b = document.createElement('button');
+      if (i === index) b.classList.add('is-active');
+      b.addEventListener('click', () => goTo(i));
+      dotsWrap.appendChild(b);
+      return b;
+    });
+
+    function goTo(i) {
+      slides[index].classList.remove('active');
+      dots[index].classList.remove('is-active');
+      index = (i + slides.length) % slides.length;
+      slides[index].classList.add('active');
+      dots[index].classList.add('is-active');
+    }
+
+    function next() { goTo(index + 1); }
+    function prev() { goTo(index - 1); }
+
+    if (nextBtn) nextBtn.addEventListener('click', next);
+    if (prevBtn) prevBtn.addEventListener('click', prev);
+
+    // Auto-play (kan styras via data-attribut)
+    let timer = null;
+    const autoplay = slider.dataset.autoplay === 'true';
+    const interval = Number(slider.dataset.interval || 4000);
+
+    function start() {
+      if (!autoplay) return;
+      stop();
+      timer = setInterval(next, interval);
+    }
+    function stop() { if (timer) clearInterval(timer); }
+
+    slider.addEventListener('mouseenter', stop);
+    slider.addEventListener('mouseleave', start);
+    slider.addEventListener('touchstart', stop, { passive: true });
+    slider.addEventListener('touchend', start);
+
+    start();
   });
-}
-
-function nextSlide() {
-  if (!paused) {
-    currentSlide = (currentSlide + 1) % slides.length;
-    showSlide(currentSlide);
-  }
-}
-
-function startSlideshow() {
-  interval = setInterval(nextSlide, 3000); // 3 sek per slide
-}
-
-function togglePause() {
-  paused = !paused;
-}
-
-slideshow.addEventListener("click", togglePause);
-
-startSlideshow();
+})();
