@@ -216,3 +216,46 @@ document.getElementById("resetForm").addEventListener("click", () => {
     start();
   });
 })();
+// === LIGHTBOX för bilder i feature cards ===
+(function initLightbox() {
+  const slides = document.querySelectorAll('.card-slide');
+  if (!slides.length) return;
+
+  // Skapa overlay-element en gång
+  const overlay = document.createElement('div');
+  overlay.className = 'lightbox-overlay';
+  overlay.innerHTML = `
+    <button class="lightbox-close" aria-label="Stäng">×</button>
+    <img src="" alt="Förstorad illustration">
+  `;
+  document.body.appendChild(overlay);
+
+  const overlayImg = overlay.querySelector('img');
+  const closeBtn = overlay.querySelector('.lightbox-close');
+
+  function openLightbox(src, alt) {
+    overlayImg.src = src;
+    overlayImg.alt = alt || 'Förstorad bild';
+    overlay.classList.add('active');
+  }
+
+  function closeLightbox() {
+    overlay.classList.remove('active');
+    setTimeout(() => (overlayImg.src = ''), 300);
+  }
+
+  slides.forEach(slide => {
+    slide.addEventListener('click', () => openLightbox(slide.src, slide.alt));
+    slide.style.cursor = 'zoom-in';
+  });
+
+  overlay.addEventListener('click', e => {
+    if (e.target === overlay || e.target === closeBtn) {
+      closeLightbox();
+    }
+  });
+
+  document.addEventListener('keydown', e => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+})();

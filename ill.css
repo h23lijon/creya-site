@@ -124,6 +124,134 @@
   background: rgba(255,255,255,0.95);
 }
 
+
+.feature-card-media {
+  position: relative;
+  aspect-ratio: 16 / 9;        /* mer liggande form */
+  width: 100%;
+  overflow: hidden;
+  border-radius: 4px;
+  box-shadow: 0 8px 22px rgba(0, 0, 0, 0.08);
+  background: #000;            /* för fade runt beskuren bild */
+}
+
+.feature-card--crop .feature-card-media img {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;            /* beskär bilden snyggt */
+  object-position: center;      /* centrera motivet */
+  transition: transform 0.5s ease;
+}
+
+.feature-card--crop .feature-card-media img.active {
+  opacity: 1;
+  transform: scale(1);
+}
+.feature-card--crop .feature-card-media img:not(.active) {
+  opacity: 0;
+  transform: scale(1.05);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.feature-card--crop .feature-card-media img:hover {
+  transform: scale(1.03);
+}
+
+/* Slider-knappar & dots */
+.card-slider {
+  position: relative;
+}
+
+.slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  border: none;
+  font-size: 1.8rem;
+  padding: 0.3rem 0.6rem;
+  cursor: pointer;
+  z-index: 2;
+  border-radius: 0.25rem;
+  transition: background 0.3s;
+}
+
+.slider-btn:hover {
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.slider-btn.prev { left: 0.4rem; }
+.slider-btn.next { right: 0.4rem; }
+
+.slider-dots {
+  position: absolute;
+  bottom: 0.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.3rem;
+}
+
+.slider-dots button {
+  width: 0.55rem;
+  height: 0.55rem;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.4);
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.slider-dots button.is-active {
+  background: rgba(255, 255, 255, 0.9);
+}
+/* === LIGHTBOX (bildvisning i full storlek) === */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.85);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.lightbox-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-overlay img {
+  max-width: 90vw;
+  max-height: 90vh;
+  border-radius: 6px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.4);
+  object-fit: contain;
+  background: #fff;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 2rem;
+  color: #fff;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  line-height: 1;
+  transition: opacity 0.3s ease;
+}
+.lightbox-close:hover {
+  opacity: 0.7;
+}
+
 /* Responsivt */
 @media (max-width: 600px) {
   .hero-section-ill,
