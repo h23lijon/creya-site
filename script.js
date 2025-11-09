@@ -70,8 +70,7 @@ document.addEventListener('DOMContentLoaded', function () {
   
 
   //navbaren vid scroll//
-
-const hero = document.querySelector('.hero-section');
+  const hero = document.querySelector('.hero-section-ill') || document.querySelector('.hero-section');
 const header = document.querySelector('.site-header');
 const logo = document.querySelector('.header-logo');
 
