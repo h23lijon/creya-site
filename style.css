@@ -952,7 +952,7 @@ background-color: rgba(250, 246, 242, 0.95);
 }
 
 .hero-content {
-  background-color: rgba(79, 68, 47, 0.7);
+  background-color: rgba(0, 0, 0, 0.9);
   width: 100%;
   min-height: 65vh;
   display: flex;
@@ -962,17 +962,16 @@ background-color: rgba(250, 246, 242, 0.95);
 
 .intro-text {
   text-align: right;
-  font-family: "r-l-limo", sans-serif;
+
   margin: 2rem 1rem 2rem 1rem;
 }
 
 .intro-text h1 { 
   font-size: 5rem;
   color: #F0EBE5;
-  transform: uppercase;
-  font-family: "all-round-gothic", sans-serif;
-  font-weight: 900;
-  font-style: normal;
+font-family: "playfair-display", serif;
+font-weight: 400;
+font-style: normal;
 }
 
 .intro-text p {
@@ -1040,7 +1039,7 @@ background-color: rgba(250, 246, 242, 0.95);
     font-size: 2.5rem;
     text-align: center;
     margin: 0 auto;
-    color: rgba(158, 143, 106, 0.3);
+
   }
 
   .about-text-content {
@@ -1140,7 +1139,7 @@ background-color: rgba(250, 246, 242, 0.95);
 }
 
 .hero-content {
-  background-color: rgba(79, 68, 47, 0.7);
+  background-color: rgba(0, 0, 0, 0.9);
   width: 100%;
   min-height: 65vh;
   display: flex;
@@ -1157,10 +1156,9 @@ background-color: rgba(250, 246, 242, 0.95);
 .intro-text h1 { 
   font-size: 5rem;
   color: #F0EBE5;
-  transform: uppercase;
-  font-family: "all-round-gothic", sans-serif;
-  font-weight: 900;
-  font-style: normal;
+font-family: "playfair-display", serif;
+font-weight: 400;
+font-style: normal;
 }
 
 .intro-text p {
