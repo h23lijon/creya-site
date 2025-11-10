@@ -128,47 +128,60 @@ function closeThankModal() {
 const textarea = document.getElementById("meddelande");
 const charCount = document.getElementById("charCount");
 
-textarea.addEventListener("input", () => {
-  const remaining = 200 - textarea.value.length;
-  charCount.textContent = `${remaining} tecken kvar`;
-  charCount.style.color = remaining < 20 ? "#b30000" : "#666";
-});
+if (textarea && charCount) {
+  textarea.addEventListener("input", () => {
+    const remaining = 200 - textarea.value.length;
+    charCount.textContent = `${remaining} tecken kvar`;
+    charCount.style.color = remaining < 20 ? "#b30000" : "#666";
+  });
+}
+
 // Stäng modal när man klickar utanför innehållet
-document.getElementById("formModal").addEventListener("click", function (e) {
-  // Kolla om man klickar på själva overlayen (och inte innehållet)
-  if (e.target === this) {
-    closeFormModal();
-  }
-});
+const formModal = document.getElementById("formModal");
+const thankModal = document.getElementById("thankModal");
 
-document.getElementById("thankModal").addEventListener("click", function (e) {
-  if (e.target === this) {
-    closeThankModal();
-  }
-});
+if (formModal) {
+  formModal.addEventListener("click", function (e) {
+    if (e.target === this) {
+      closeFormModal();
+    }
+  });
+}
 
-document.getElementById("openFormButton").addEventListener("click", openFormModal);
+if (thankModal) {
+  thankModal.addEventListener("click", function (e) {
+    if (e.target === this) {
+      closeThankModal();
+    }
+  });
+}
 
-document.getElementById("resetForm").addEventListener("click", () => {
-  document.getElementById("contactForm").reset();
+const openFormButton = document.getElementById("openFormButton");
+if (openFormButton) {
+  openFormButton.addEventListener("click", openFormModal);
+}
 
-  // Återställ charCount
-  const charCount = document.getElementById("charCount");
-  if (charCount) charCount.textContent = "200 tecken kvar";
-});
+const resetForm = document.getElementById("resetForm");
+if (resetForm) {
+  resetForm.addEventListener("click", () => {
+    document.getElementById("contactForm").reset();
+    const charCount = document.getElementById("charCount");
+    if (charCount) charCount.textContent = "200 tecken kvar";
+  });
+}
 
-// === Mini-slider för feature-cards ===
-(function initCardSliders() {
-  const sliders = document.querySelectorAll('.card-slider');
+// === Mini-slider för portfolio-cards ===
+(function initPortfolioSliders() {
+  const sliders = document.querySelectorAll('.portfolio-slider');
   if (!sliders.length) return;
 
   sliders.forEach((slider) => {
-    const slides = Array.from(slider.querySelectorAll('.card-slide'));
+    const slides = Array.from(slider.querySelectorAll('.portfolio-slide'));
     if (slides.length <= 1) return;
 
-    const prevBtn = slider.querySelector('.slider-btn.prev');
-    const nextBtn = slider.querySelector('.slider-btn.next');
-    const dotsWrap = slider.querySelector('.slider-dots');
+    const prevBtn = slider.querySelector('.portfolio-slider-btn.prev');
+    const nextBtn = slider.querySelector('.portfolio-slider-btn.next');
+    const dotsWrap = slider.querySelector('.portfolio-slider-dots');
 
     let index = slides.findIndex(s => s.classList.contains('active'));
     if (index === -1) index = 0;
@@ -216,9 +229,10 @@ document.getElementById("resetForm").addEventListener("click", () => {
     start();
   });
 })();
-// === LIGHTBOX för bilder i feature cards ===
+
+// === LIGHTBOX för bilder i portfolio cards ===
 (function initLightbox() {
-  const slides = document.querySelectorAll('.card-slide');
+  const slides = document.querySelectorAll('.portfolio-slide');
   if (!slides.length) return;
 
   // Skapa overlay-element en gång
