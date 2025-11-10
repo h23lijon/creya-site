@@ -10,34 +10,47 @@
   <link rel="stylesheet" href="https://use.typekit.net/bdr6bzr.css">
   <link rel="stylesheet" href="style.css" />
   <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
-  <script src="https://cdn.plot.ly/plotly-2.26.0.min.js"></script>
+
 
   <script src="script.js" defer></script>
 </head>
 <body>
+   <div id="introOverlay" class="intro-overlay" aria-hidden="false" role="dialog" aria-label="Introvideo">
+    <video id="introVideo"
+           class="intro-video"
+           muted
+           playsinline
+           preload="auto"
+           src="/media/intro.mp4"
+           poster="/media/intro-poster.jpg">
+    </video>
+    <button id="skipBtn" class="skip-btn" type="button">Hoppa över</button>
+  </div>
 
-  <header class="site-header">
+
+<header class="site-header">
+  <div class="container">
     <div class="header-inner">
 
-      <img src="img/cre.svg" alt="créya-logotyp" class="header-logo" />
+<a href="index.html" style="display: contents;">
+   <img src="img/cre.svg" alt="créya-logotyp" class="header-logo" />
+</a>
 
       <nav class="navbar">
         <div class="menu-toggle" id="mobile-menu">
-          <span></span>
-          <span></span>
-          <span></span>
+          <span></span><span></span><span></span>
         </div>
-
         <ul id="navbar-links">
-         <li><a href="about.html">Om</a></li>
-          <li><a href="gd.html">Grafisk Design</a></li>
-          <li><a href="ux.html">UX</a></li>
-            <li><a href="webb.html">webb</a></li>
-          <li><a href="ill.html">Illustration</a></li> 
+          <li><a href="about.html">Om</a></li>
+          <li><a href="gi.html">Kontakt</a></li>
+      
+        <!-- <li><a href="webb.html">Webb</a></li>
+          <li><a href="ill.html">Illustration</a></li>-->
         </ul>
       </nav>
     </div>
-  </header>
+</header>
+
   <div class="header-spacer" aria-hidden="true"></div>
 
   <!-- Hero Section -->
@@ -45,8 +58,8 @@
     <div class="hero-content">
       <div class="intro-text">
         <h1>KREATIVT<br>UTTRYCK</h1>
-        <p>Inom grafisk design, webb och UX</p>
-            <a href="#kontakt" class="kontakt-knapp">KONTAKT</a>
+        <p>Inom grafisk design och illustration</p>
+<button class="kontakt-knapp" id="openFormButton">KONTAKT</button>
       </div>
     </div>
 
@@ -54,60 +67,48 @@
 
   <!-- Om oss -->
 <section class="about-section" id="about">
-  <div class="about-text-content">
-    <h2>Vad är Créya?</h2>
-    <p>
-      Créya är en kreativ plattform som erbjuder tjänster inom grafisk design, webb och UX. Vi hjälper företag att 
-      skapa visuellt tilltalande och användarvänliga lösningar som stärker både varumärke och kommunikation – från idé till färdig produkt.
-    </p>
-    <div class="kontakt-container">
-      <a href="#kontakt" class="kontakt-knapp2">boka möte</a>
-      <a href="#kontakt" class="kontakt-knapp3">läs mer</a>
+  <div class="about-wrapper">
+    <div class="about-text-content">
+      <h2>LINNÉA JONES</h2>
+      <p>
+      Grafisk design och webbutveckling<br>Kandidatexamen 2026
+      </p>
+      <!--
+      <div class="kontakt-container">
+        <a href="#kontakt" class="kontakt-knapp2">boka möte</a>
+        <a href="#kontakt" class="kontakt-knapp3">läs mer</a>
+      </div>-->
     </div>
-  </div>
-
-  <div class="about-image">
-    <img src="img/about-image.jpg" alt="Bild som representerar Créya">
-  </div>
+<!--
+    <div class="slideshow" id="slideshow">
+      <div class="slide active">
+        <img src="img/slide1.png" alt="Bild 1">
+      </div>
+      <div class="slide">
+        <img src="img/slide2.png" alt="Bild 2">
+      </div>
+      <div class="slide">
+        <img src="img/slide3.png" alt="Bild 3">
+      </div>
+    </div>
+  </div>-->
 </section>
 
 
-<div class="spacer"></div>
+
+
 
 <!------------------------------------- FEATURE CARDS ---------------->
-    <h2 class="services">TJÄNSTER</h2>
+
 <section class="card-container">
   <div class="feature-card">
     <img src="img/bg3.jpg" alt="Bild 1">
-    <a href="ux.html" class="feature-card-content-link">
+    <a href="ill.html" class="feature-card-content-link">
       <div class="feature-card-content">
-        <h4>USER EXPERIENCE</h4>
-        <h2>Användarens upplevelse</h2>
-        <p>Vad är UX - och varför är det viktigt för ditt varumärke? Créya förklarar!</p>
+        <h4>VISUELL STORYTELLING</h4>
+        <h2>ILLUSTRATION</h2>
+        <p></p>
       </div>
-    </a>
-  </div>
-
- <div class="feature-card">
-  <img src="img/bg2.jpg" alt="Bild 2">
-  <a href="gf.html" class="feature-card-content-link">
-    <div class="feature-card-content">
-      <h4>GRAFISK DESIGN</h4>
-      <h2>Visuell kommunikation</h2>
-      <p>Strukturerad och användarvänlig grafisk design som stödjer budskap och innehåll.</p>
-    </div>
-  </a>
-</div>
-
-  <div class="feature-card">
-    <img src="img/bild6.jpg" alt="Bild 3">
-    <a href="webb.html" class="feature-card-content-link">
-
-    <div class="feature-card-content">
-      <h4>WEBB</h4>
-      <h2>Responsiv design</h2>
-      <p>Hur gör man en webbplats som fungerar lika bra i mobilen som på datorn?</p>
-    </div>
     </a>
   </div>
 
@@ -115,85 +116,26 @@
     <img src="img/bild6.jpg" alt="Bild 4">
     <a href="ill.html" class="feature-card-content-link">
     <div class="feature-card-content">
-      <h4>ILLUSTRATION</h4>
-      <h2>Visuell storytelling</h2>
-      <p>Illustrationer som väcker känslor och förstärker ditt budskap och varumärkesidentitet</p>
+      <h4>VISUELL KOMMUNIKATION</h4>
+      <h2>GRAFISK DESIGN</h2>
+      <p></p>
     </div>
     </a>
   </div>
 </section>
 
-<section class="process-section">
-  <div class="overlay"></div>
-  <h2>Hur går det till?</h2>
-  <div class="steps-container">
-    <div class="step">
-      <div class="number">1</div>
-      <h3>Boka ett första samtal</h3>
-      <p>Vi inleder med ett kort möte för att förstå dina behov och målsättningar.</p>
-    </div>
-    <div class="step">
-      <div class="number">2</div>
-      <h3>Behovsanalys & strategi</h3>
-      <p>Vi går på djupet med dina önskemål och utformar en lösningsplan.</p>
-    </div>
-    <div class="step">
-      <div class="number">3</div>
-      <h3>Design & produktion</h3>
-      <p>Vi tar fram materialet med fokus på kvalitet, funktion och estetik.</p>
-    </div>
-    <div class="step">
-      <div class="number">4</div>
-      <h3>Leverans & uppföljning</h3>
-      <p>Du får ett färdigt resultat – och vi finns tillgängliga för support och vidareutveckling.</p>
-    </div>
-  </div>
-         <a href="#kontakt" class="kontakt-knapp4">Kom igång</a>
-</section>
-
-
-  <!-- INDICATORS -->
-  <div class="step-indicators">
-    <span class="active"></span>
-    <span></span>
-    <span></span>
-    <span></span>
-  </div>
-</section>
-<div class="spacer"></div>
-
-<section class="why-us-section">
-  <div class="why-us-container">
-    <h2 class="why-us-title">Varför Créya?</h2>
-    <div class="why-us-columns">
-      <div class="why-us-column">
-        <h3>Personligt samarbete</h3>
-        <p>Vi utformar varje lösning med omtanke och fingertoppskänsla – anpassad för ditt varumärkes identitet och behov.</p>
-      </div>
-      <div class="why-us-column">
-        <h3>Hög kvalitet och unik design</h3>
-        <p>Vi levererar med fokus på detaljer, formstark design och funktion – alltid med kvalitet i första rummet.</p>
-      </div>
-      <div class="why-us-column">
-        <h3>Kreativ frihet</h3>
-        <p>Du får självständigt och genomtänkt kreativt arbete som inte kräver ständig uppföljning.</p>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- Trigg-knapp -->
-<button onclick="openFormModal()">Kontakta oss</button>
+ <!--Trigg-knapp -->
+<button class="kontakt-knapp-modal" onclick="openFormModal()">Kontakt</button>
 
 <!-- Formulär-modal -->
 <div id="formModal" class="modal">
   <div class="modal-content">
     <span class="close" onclick="closeFormModal()">&times;</span>
-    <h2>Kontakta oss</h2>
+    <h2>Kontakt</h2>
     <form id="contactForm">
       <label>
         Namn:
-        <input type="text" name="namn" placeholder="Ditt namn">
+        <input type="text" name="namn">
       </label>
 
       <label>
@@ -222,14 +164,16 @@
           <label>
 <label>
   Meddelande (max 200 tecken):
-  <textarea name="meddelande" id="meddelande" maxlength="200" placeholder="Berätta kort vad du har i åtanke..."></textarea>
-  <small id="charCount">200 tecken kvar</small>
+  <textarea name="meddelande" id="meddelande" maxlength="200"></textarea>
+    <span id="charCount">200 tecken kvar</span>
 </label>
 </label>
         </div>
       </div>
-
+<div class="button-container">
       <button type="submit">SKICKA</button>
+       <p class="reset-form" id="resetForm">Rensa formulär</p>
+       </div>
     </form>
   </div>
 </div>
@@ -252,7 +196,7 @@
       <a href="#chart6">Kontakt</a>
     </nav>
 
-    <div class="footer-icons">
+<!--    <div class="footer-icons">
       <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
         <img src="img/instagram.png" alt="Instagram">
       </a>
@@ -265,9 +209,12 @@
     </div>
 
     <div class="footer-copy">© 2025 Créya</div>
-  </div>
+  </div>-->
+
 </footer>
   <a href="#top" class="top-button">
   <img src="img/top.svg" alt="Till toppen" />
+</a>
+</div> <!-- End of page-container -->
 </body>
 </html>

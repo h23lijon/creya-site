@@ -1,22 +1,252 @@
-
-
-.ill-section {
-  background-image: url(img/bg3.jpg); 
+/* === Hero (ILL) === */
+.hero-section-ill {
+  background-image: url(img/bg2.jpg);
   background-size: cover;
   background-position: center;
-  height: 45vh;
-  width: 100vw;
+  min-height: 55vh;          
+  width: 100%;
   display: flex;
   position: relative;
-  margin-bottom: 5rem;
+  margin-bottom: 1.5rem;
   padding: 0;
+  overflow: hidden;
 }
 
-.ill-content {
-  background-color: rgba(79, 68, 47, 0.8);
+.hero-content-ill {
+  background-color: rgba(56, 46, 46, 0.9);
   width: 100%;
-  height: 100%;
+  min-height: 55vh;
   display: flex;
-  align-items: right;
-  justify-content: right;
+  align-items: flex-end;
+  justify-content: flex-end;
+}
+
+[id] { scroll-margin-top: 7rem; }
+
+.intro-text-ill {
+  text-align: right;
+  display: flex;
+  flex-direction: column;  /* Staplar elementen vertikalt */
+  align-items: flex-end;   /* Högerjusterar alla */
+  margin: 6rem 5vw;        /* Luft från kanten */
+}
+
+.intro-text-ill h1 {
+  font-size: 3rem;          
+  color: #F0EBE5;
+  text-transform: uppercase;  
+  font-family: "r-l limo", sans-serif;
+  font-weight: 900;
+  font-style: normal;
+}
+
+.intro-text-ill p {
+  font-size: 1.2rem;
+  line-height: 1.5;
+  letter-spacing: 0.03rem;
+  color: #F0EBE5;
+  margin-top: .5rem;
+  max-width: clamp(20ch, 24vw, 30ch);
+  text-align: right; /* säkerställer högerjusterad text */
+}
+/* === Portfolio Cards med Slider === */
+.portfolio-card {
+  position: relative;
+  background: transparent;
+  border-radius: 0.3rem;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.portfolio-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+}
+
+/* Media container - flexibel för både stående och liggande */
+.portfolio-card-media {
+  position: relative;
+  width: 100%;
+  background: transparent;
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 300px;
+}
+
+/* Bilder - anpassar sig efter originalformat */
+.portfolio-slide {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+  object-fit: contain;
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.portfolio-slide.active {
+  opacity: 1;
+}
+
+/* Slider container */
+.portfolio-slider {
+  position: relative;
+  width: 100%;
+}
+
+/* Slider-knappar - centrerade vertikalt i media-containern */
+.portfolio-slider-btn {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(0, 0, 0, 0.4);
+  color: #fff;
+  border: none;
+  font-size: 1.8rem;
+  width: 2.5rem;
+  height: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  z-index: 10;
+  border-radius: 50%;
+  transition: background 0.3s ease;
+}
+
+.portfolio-slider-btn:hover {
+  background: rgba(0, 0, 0, 0.65);
+}
+
+.portfolio-slider-btn.prev {
+  left: 0.8rem;
+}
+
+.portfolio-slider-btn.next {
+  right: 0.8rem;
+}
+
+/* Dots */
+.portfolio-slider-dots {
+  position: absolute;
+  bottom: 0.8rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 0.4rem;
+  z-index: 10;
+}
+
+.portfolio-slider-dots button {
+  width: 0.6rem;
+  height: 0.6rem;
+  border-radius: 50%;
+  border: none;
+  background: rgba(255, 255, 255, 0.5);
+  cursor: pointer;
+  transition: background 0.3s ease;
+}
+
+.portfolio-slider-dots button.is-active {
+  background: rgba(255, 255, 255, 0.95);
+}
+
+/* Content sektion */
+.portfolio-card-content-link {
+  text-decoration: none;
+  color: inherit;
+  display: block;
+}
+
+.portfolio-card-content {
+  padding: 1.5rem;
+  background: #fff;
+}
+
+.portfolio-card-content h4 {
+  font-size: 0.85rem;
+  color: #876E6E;
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+}
+
+.portfolio-card-content h2 {
+  font-size: 1.5rem;
+  margin-bottom: 0.8rem;
+  color: #333;
+}
+
+.portfolio-card-content p {
+  color: #666;
+  line-height: 1.6;
+}
+
+/* === LIGHTBOX === */
+.lightbox-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.9);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 2000;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+.lightbox-overlay.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.lightbox-overlay img {
+  max-width: 90vw;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 4px;
+  /*box-shadow: 0 10px 40px rgba(0, 0, 0, 0.6);*/
+}
+
+.lightbox-close {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  font-size: 2.5rem;
+  color: #fff;
+  background: transparent;
+  border: none;
+  cursor: pointer;
+  line-height: 1;
+  transition: opacity 0.3s ease;
+  z-index: 2001;
+}
+
+.lightbox-close:hover {
+  opacity: 0.7;
+}
+/* Responsivt */
+@media (max-width: 600px) {
+  .hero-section-ill,
+  .hero-content-ill { min-height: 48vh; }
+
+  .intro-text-ill {
+    margin: 3rem 6vw;
+  }
+
+  .intro-text-ill h1 {
+    font-size: 2.2rem;
+  }
+
+  .intro-text-ill p {
+    font-size: 1.05rem;
+    max-width: 26ch;
+  }
 }
