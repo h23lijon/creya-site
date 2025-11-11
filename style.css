@@ -608,7 +608,6 @@ button:hover {
   overflow: hidden;
   border-radius: 0px;
   background:#000;
-  aspect-ratio: 4/5;                       /* stabil höjd */
   box-shadow: 0 10px 30px rgba(0,0,0,.15);
 }
 
