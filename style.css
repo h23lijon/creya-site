@@ -88,7 +88,7 @@ body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial
   max-width: 56rem;
   width: 100%;
   border: 1px solid #e5e7eb;
-  border-radius: 1rem;
+  border-radius: 0rem;
   padding: 2rem;
   box-shadow: 0 10px 25px rgba(0,0,0,.06);
 }
@@ -574,6 +574,149 @@ button:hover {
   background-color: #2D5562;
 }
 
+/* ======??????????????????=== Base (kan mixas med din befintliga stil) =========================== */
+:root{
+  --bg:#0E0E0E;
+  --text:#EAEAEA;
+  --overlay: rgba(0,0,0,.85);
+  --badge:#D4AF37; /* guld/varm accent */
+}
+
+.portfolio-section{
+  background:#fff; /* byt vid behov */
+  padding: clamp(2rem, 4vw, 4rem) 1rem;
+}
+
+.portfolio-grid{
+  max-width: 1200px;
+  margin: 0 auto;
+  display:grid;
+  gap: clamp(1rem, 2.5vw, 2rem);
+  grid-template-columns: 1fr;             /* small: 1 */
+}
+
+@media (min-width: 700px){
+  .portfolio-grid{ grid-template-columns: repeat(2, 1fr);} /* medium: 2 */
+}
+@media (min-width: 1024px){
+  .portfolio-grid{ grid-template-columns: repeat(3, 1fr);} /* large: 3 */
+}
+
+/* ======== Card ======== */
+.card{
+  position: relative;
+  overflow: hidden;
+  border-radius: 0px;
+  background:#000;
+  aspect-ratio: 4/5;                       /* stabil höjd */
+  box-shadow: 0 10px 30px rgba(0,0,0,.15);
+}
+
+.card img{
+  width:100%;
+  height:100%;
+  object-fit: cover;
+  transform: scale(1.02);
+  transition: transform .5s ease;
+}
+
+.card .overlay{
+  pointer-events: none;
+  position:absolute; inset:0;
+  display:flex;
+  flex-direction:column;
+  justify-content:flex-end;
+  padding: clamp(1rem, 2.5vw, 2rem);
+  color:#fff;
+  opacity:0;
+  transform: translateY(10px);
+  transition: opacity .35s ease, transform .35s ease;
+  /* Vogue-lik gradient */
+  background:
+    linear-gradient(180deg, rgba(0,0,0,0) 0%,
+                            rgba(0,0,0,.25) 40%,
+                            rgba(0,0,0,.55) 65%,
+                            rgba(0,0,0,.85) 100%);
+}
+
+.card .badge{
+  display:inline-block;
+  color: var(--badge);
+  font-size:.75rem;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  margin-bottom:.35rem;
+}
+
+.card h3{
+  font-family: "playfair-display", serif;
+  font-weight:600;
+  font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+  line-height:1.2;
+  margin:0 0 .25rem 0;
+}
+
+.card p{
+  margin:0;
+  color: rgba(255,255,255,.9);
+  font-size:.95rem;
+  letter-spacing:.01em;
+}
+
+/* Klick-yta över hela kortet */
+.card .card-link{
+  position:absolute; inset:0;
+  background:transparent;
+  border:0; padding:0; margin:0;
+  cursor:pointer;
+}
+
+/* Hover-effekt */
+.card:hover img{ transform: scale(1.06); }
+.card:hover .overlay{ opacity:1; transform: translateY(0); }
+
+/* ======== Lightbox ======== */
+.lightbox{
+  position: fixed; inset:0;
+  display:none;
+  place-items:center;
+  background: rgba(0,0,0,.9);
+  z-index: 9999;
+}
+
+.lightbox[aria-hidden="false"]{ display:grid; }
+
+.lb-img{
+  max-width: min(90vw, 1200px);
+  max-height: 84vh;
+  object-fit: contain;
+  box-shadow: 0 20px 60px rgba(0,0,0,.5);
+  border-radius: 12px;
+}
+
+.lb-close{
+  position:absolute; top:1rem; right:1rem;
+  width:3rem; height:3rem;
+  border-radius: 999px;
+  border:0; cursor:pointer;
+  font-size:2rem; line-height:1;
+  color:#fff; background: rgba(255,255,255,.12);
+  backdrop-filter: blur(6px);
+}
+
+.lb-nav{
+  position:absolute; top:50%;
+  transform: translateY(-50%);
+  width:3.2rem; height:3.2rem;
+  border-radius: 999px; border:0;
+  background: rgba(255,255,255,.14);
+  color:#fff; font-size:2rem; cursor:pointer;
+  display:grid; place-items:center;
+}
+.lb-nav.prev{ left:1rem; }
+.lb-nav.next{ right:1rem; }
+
+.lb-nav:hover, .lb-close:hover{ background: rgba(255,255,255,.22); }
 
 
 /* ============================== Feature Cards ====================== */
@@ -604,7 +747,7 @@ button:hover {
   font-weight: 400;
   font-style: normal;
   font-size: 5rem;
-  line-height: 1.8rem;
+  line-height: 3rem;
   text-align: center;
   margin-bottom: 3rem;
 

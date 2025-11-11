@@ -230,19 +230,11 @@ if (resetForm) {
   });
 })();
 
-// === LIGHTBOX för bilder i portfolio cards ===
 (function initLightbox() {
-  const slides = document.querySelectorAll('.portfolio-slide');
-  if (!slides.length) return;
-
-  // Skapa overlay-element en gång
-  const overlay = document.createElement('div');
-  overlay.className = 'lightbox-overlay';
-  overlay.innerHTML = `
-    <button class="lightbox-close" aria-label="Stäng">×</button>
-    <img src="" alt="Förstorad illustration">
-  `;
-  document.body.appendChild(overlay);
+  const overlay = document.querySelector('.lightbox-overlay');
+  const slides = document.querySelectorAll('.lightbox-slide, .portfolio-slide img');
+  
+  if (!overlay || !slides.length) return;
 
   const overlayImg = overlay.querySelector('img');
   const closeBtn = overlay.querySelector('.lightbox-close');
@@ -273,3 +265,79 @@ if (resetForm) {
     if (e.key === 'Escape') closeLightbox();
   });
 })();
+
+// === Lightbox för portfolio cards med flera bilder ===
+(() => {
+  const cards = document.querySelectorAll('.card');
+  const lb = document.getElementById('lightbox');
+  const imgEl = lb.querySelector('.lb-img');
+  const btnPrev = lb.querySelector('.prev');
+  const btnNext = lb.querySelector('.next');
+  const btnClose = lb.querySelector('.lb-close');
+
+  let gallery = [];    // aktuella bildvägar
+  let index = 0;       // nuvarande position
+
+  function openLB(imgs, start = 0){
+    gallery = imgs;
+    index = start;
+    updateImg();
+    lb.setAttribute('aria-hidden', 'false');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function closeLB(){
+    lb.setAttribute('aria-hidden', 'true');
+    document.body.style.overflow = '';
+    gallery = [];
+    index = 0;
+  }
+
+  function updateImg(){
+    imgEl.src = gallery[index];
+    imgEl.alt = '';
+  }
+
+  function next(){ index = (index + 1) % gallery.length; updateImg(); }
+  function prev(){ index = (index - 1 + gallery.length) % gallery.length; updateImg(); }
+
+  cards.forEach(card => {
+    const btn = card.querySelector('.card-link');
+    const imgs = card.dataset.images
+      .split(',')
+      .map(s => s.trim())
+      .filter(Boolean);
+
+    btn.addEventListener('click', () => openLB(imgs, 0));
+    // även klick direkt på bilden
+    card.querySelector('img').addEventListener('click', () => openLB(imgs, 0));
+  });
+
+  btnClose.addEventListener('click', closeLB);
+  btnNext.addEventListener('click', next);
+  btnPrev.addEventListener('click', prev);
+
+  // stäng vid klick utanför bilden
+  lb.addEventListener('click', (e) => {
+    if (e.target === lb) closeLB();
+  });
+
+  // tangentbord
+  document.addEventListener('keydown', (e) => {
+    if (lb.getAttribute('aria-hidden') === 'true') return;
+    if (e.key === 'Escape') closeLB();
+    if (e.key === 'ArrowRight') next();
+    if (e.key === 'ArrowLeft') prev();
+  });
+
+  // enkel swipe på touch
+  let startX = null;
+  imgEl.addEventListener('touchstart', (e) => { startX = e.touches[0].clientX; }, {passive:true});
+  imgEl.addEventListener('touchend', (e) => {
+    if (startX === null) return;
+    const dx = e.changedTouches[0].clientX - startX;
+    if (Math.abs(dx) > 40) (dx < 0 ? next : prev)();
+    startX = null;
+  }, {passive:true});
+})();
+

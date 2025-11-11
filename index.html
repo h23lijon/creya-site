@@ -89,8 +89,89 @@
     </div>
   </div>
 </section>
+<!-------------------------------nya kort--------------------------->
+<section class="portfolio-section">
+  <div class="portfolio-grid">
 
-<!------------------------------------- FEATURE CARDS ---------------->
+    <!-- Card 1 -->
+    <article class="card" data-images="img/poster-1a.jpg,img/poster-1b.jpg,img/poster-1c.jpg">
+      <img src="img/poster-1a.jpg" alt="Typography Poster – series">
+      <div class="overlay">
+        <span class="badge">PRINT</span>
+        <h3>Typography Poster</h3>
+        <p>Experimental typographic work</p>
+      </div>
+      <button class="card-link" aria-label="Open gallery"></button>
+    </article>
+
+    <!-- Card 2 -->
+    <article class="card" data-images="img/mag-1.jpg,img/mag-2.jpg">
+      <img src="img/mag-1.jpg" alt="Editorial spread">
+      <div class="overlay">
+        <span class="badge">EDITORIAL</span>
+        <h3>Magazine Layout</h3>
+        <p>Minimal, type-first composition</p>
+      </div>
+      <button class="card-link" aria-label="Open gallery"></button>
+    </article>
+
+    <!-- Card 3 -->
+    <article class="card" data-images="img/marble-1.jpg,img/marble-2.jpg">
+      <img src="img/marble-1.jpg" alt="Black & white marble shapes">
+      <div class="overlay">
+        <span class="badge">ART DIRECTION</span>
+        <h3>Monochrome Study</h3>
+        <p>Contrast, shape & rhythm</p>
+      </div>
+      <button class="card-link" aria-label="Open gallery"></button>
+    </article>
+
+    <!-- Card 4 -->
+    <article class="card" data-images="img/brand-1.jpg,img/brand-2.jpg">
+      <img src="img/brand-1.jpg" alt="Brand system preview">
+      <div class="overlay">
+        <span class="badge">BRAND</span>
+        <h3>Identity System</h3>
+        <p>Elegant, editorial feel</p>
+      </div>
+      <button class="card-link" aria-label="Open gallery"></button>
+    </article>
+
+    <!-- Card 5 -->
+    <article class="card" data-images="img/poster-2a.jpg,img/poster-2b.jpg">
+      <img src="img/poster-2a.jpg" alt="Type exploration">
+      <div class="overlay">
+        <span class="badge">POSTER</span>
+        <h3>Type Exploration</h3>
+        <p>Bold letters, subtle tones</p>
+      </div>
+      <button class="card-link" aria-label="Open gallery"></button>
+    </article>
+
+    <!-- Card 6 -->
+    <article class="card" data-images="img/layout-1.jpg,img/layout-2.jpg">
+      <img src="img/layout-1.jpg" alt="Grid-based layout">
+      <div class="overlay">
+        <span class="badge">LAYOUT</span>
+        <h3>Grid Narrative</h3>
+        <p>Structure with personality</p>
+      </div>
+      <button class="card-link" aria-label="Open gallery"></button>
+    </article>
+
+  </div>
+</section>
+
+<!-- Lightbox -->
+<div class="lightbox" id="lightbox" aria-hidden="true">
+  <button class="lb-close" aria-label="Close">×</button>
+  <button class="lb-nav prev" aria-label="Previous">‹</button>
+  <img class="lb-img" src="" alt="">
+  <button class="lb-nav next" aria-label="Next">›</button>
+</div>
+
+
+<!------------------------------------- FEATURE CARDS ---------------
   <h2 class="feature">
         <span style="color: white;">Selected</span><br>
         <span style="color: #D4AF37;">work</span>
@@ -118,93 +199,7 @@
     </a>
   </div>
 </section>
-
- <!--Trigg-knapp -->
-<button class="kontakt-knapp-modal" onclick="openFormModal()">Kontakt</button>
-
-<!-- Formulär-modal -->
-<div id="formModal" class="modal">
-  <div class="modal-content">
-    <span class="close" onclick="closeFormModal()">&times;</span>
-    <h2>Kontakt</h2>
-    <form id="contactForm">
-      <label>
-        Namn:
-        <input type="text" name="namn">
-      </label>
-
-      <label>
-        Företag: *
-        <input type="text" name="foretag" required>
-      </label>
-
-      <label>
-        Mail: *
-        <input type="email" name="mail" required>
-      </label>
-
-      <label>
-        Telefonnummer:
-        <input type="tel" name="telefon">
-      </label>
-
-      <div class="options-section">
-        <p>Vad önskar du hjälp med?</p>
-        <div class="checkbox-group">
-          <label><input type="checkbox" name="hjalp" value="Logotyp"> Logotyp</label>
-          <label><input type="checkbox" name="hjalp" value="Grafisk profil"> Grafisk profil</label>
-          <label><input type="checkbox" name="hjalp" value="Webbsida"> Webbsida</label>
-          <label><input type="checkbox" name="hjalp" value="UX"> UX</label>
-          <label><input type="checkbox" name="hjalp" value="Annat"> Annat</label>
-          <label>
-<label>
-  Meddelande (max 200 tecken):
-  <textarea name="meddelande" id="meddelande" maxlength="200"></textarea>
-    <span id="charCount">200 tecken kvar</span>
-</label>
-</label>
-        </div>
-      </div>
-<div class="button-container">
-      <button type="submit">SKICKA</button>
-       <p class="reset-form" id="resetForm">Rensa formulär</p>
-       </div>
-    </form>
-  </div>
-</div>
-
-<!-- Tack-modal -->
-<div id="thankModal" class="modal">
-  <div class="modal-content">
-    <p>Tack för ditt meddelande! Vi återkommer så snart vi kan.</p>
-    <button onclick="closeThankModal()">Stäng</button>
-  </div>
-</div>
-
-<div class="spacer"></div>
-  <!-------------------------------------------- FOOTER ------------------------------>
-<footer class="site-footer">
-  <div class="footer-container">
-    <nav class="footer-nav">
-      <a href="#chart1">Tjänster</a>
-      <a href="#chart5">Om</a>
-      <a href="#chart6">Kontakt</a>
-    </nav>
-
-<!--    <div class="footer-icons">
-      <a href="https://www.instagram.com" target="_blank" aria-label="Instagram">
-        <img src="img/instagram.png" alt="Instagram">
-      </a>
-      <a href="https://www.linkedin.com" target="_blank" aria-label="LinkedIn">
-        <img src="img/linkedin.png" alt="LinkedIn">
-      </a>
-      <a href="mailto:kontakt@creya.se" aria-label="E-post">
-        <img src="img/email.png" alt="E-post">
-      </a>
-    </div>
-
-    <div class="footer-copy">© 2025 Créya</div>
-  </div>-->
+-->
 
 </footer>
   <a href="#top" class="top-button">
