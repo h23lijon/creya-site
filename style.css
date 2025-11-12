@@ -1,21 +1,24 @@
-/* === Grund === 
-#7B6565 grundlila
-rubriker - 876E6E
-h4 - 655353
-hover o brödtext #382E2E
-footer - #2D2525*/
+
 * {
   margin: 0;
   padding: 0; 
   box-sizing: border-box;
 } 
 
+html {
+  scroll-behavior: smooth;
+}
 
 /*ta ev bort ----------------------*/
 :root{
   --maxw: 1200px;
-  --gutter: 0rem;  /* ändra till 4rem om du vill ha större sidmarginal */
+  --gutter: 0rem; 
 }
+
+:root { --fade: 320ms; }
+html, body { height: 100%; margin: 0; }
+body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
+
 .container,
 .page-container,
 .footer-container{
@@ -25,9 +28,6 @@ footer - #2D2525*/
   padding-right: var(--gutter);
 }
 
-:root { --fade: 320ms; }
-html, body { height: 100%; margin: 0; }
-body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif; }
 
 /* Fullskärms-overlay för videon */
 .intro-overlay {
@@ -42,27 +42,27 @@ body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial
   transition: opacity var(--fade) ease, visibility var(--fade) ease;
 }
 
-/* Helt dold */
+/* 
 .intro-overlay.is-hidden {
   opacity: 0;
   visibility: hidden;
   pointer-events: none;
 }
 
-/* Återbesök i samma session:
-   visa lagret (stillbild) men släpp igenom klick så man kan interagera under. */
+
+
 .intro-overlay.is-returning {
-  pointer-events: none;           /* låter dig klicka på fält under */
-  background: rgba(0,0,0,0.0);    /* valfritt: gör bakgrunden transparent */
+  pointer-events: none;          
+  background: rgba(0,0,0,0.0);    /
 }
 
 .intro-video {
   width: 100vw;
   height: 100vh;
-  object-fit: cover; /* fyll hela skärmen */
+  object-fit: cover; /* fyll hela skärmen 
 }
 
-/* Skip-knapp för tillgänglighet */
+/* Skip-knapp för tillgänglighet 
 .skip-btn {
   position: absolute;
   right: 1rem;
@@ -101,13 +101,7 @@ input {
   border-radius: .6rem;
   font-size: 1rem;
 }
-/*Blå: #2D5562
-Beige: #8f815e
-*/
 
-html {
-  scroll-behavior: smooth;
-}
 
 body {
   font-family: "quicksand", sans-serif;
@@ -147,7 +141,7 @@ body h1, h2, h3 {
   width: 100%;
 }
 .site-header.scrolled {
-  background-color: rgba(123, 101, 101, 0.65);
+  background-color: rgba(0, 0, 0, 0.65);
   box-shadow: 0 0.125rem 0.375rem rgba(3, 3, 3, 0.04);
 }
 
@@ -163,7 +157,7 @@ body h1, h2, h3 {
 }
 
 .site-header.hover-scrolled {
-  background-color: rgba(123, 101, 101, 0.65);
+  background-color: rgba(0, 0, 0, 0.65);
   box-shadow: 0 0.125rem 0.375rem rgba(0, 0, 0, 0.04);
 }
 
@@ -222,7 +216,7 @@ body h1, h2, h3 {
   list-style: none;
   display: flex;
   justify-content: flex-end;
-  gap: 5rem;
+  gap: 2rem;
   padding: 0.5rem 0;
   margin: 0;
 }
@@ -272,7 +266,7 @@ body h1, h2, h3 {
 }
 
 .hero-content {
-  background-color: rgba(0, 0, 0, 0.9);
+  background-color: rgba(0, 0, 0, 0.85);
   width: 100%;
   min-height: 95vh;
   display: flex;
@@ -286,7 +280,7 @@ body h1, h2, h3 {
 
 .intro-text {
   text-align: right;
-  margin: 10rem 5rem 10rem 5rem;
+  margin: 10rem 8rem 10rem 5rem;
 }
 
 .intro-text h1 { 
@@ -314,32 +308,37 @@ margin-top: 3rem;
 /* ========================== About Section =================== */
 .about-section {
   background-color: #E0E0E0; /*#F0EBE5;*/
-  padding: 2rem 6rem;
+  padding: 4rem 10rem;
 }
 
 /* Flex container */
 .about-wrapper {
-  max-width: 1200px;
-  margin: 2rem auto;
+  max-width: 1100px;
+  margin: 0 auto;
   display: flex;
-  align-items: flex-start;
-  justify-content: space-between;
-  gap: 2rem;
+  align-items: center; /* Centrera vertikalt */
+  justify-content: center;
+  gap: 4rem; /* avstånd mellan rubrik och text */
+  padding-bottom: 5rem;
 }
 
-/* Vänstersidan (rubrik + kort info) */
+/* Vänstersidan (rubrik) */
 .about-text-content {
   flex: 1 1 40%;
-  margin-right: 2rem;
+  text-align: right; /* högerställ rubriken */
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end; /* flytta rubriken mot höger */
 }
 
 .about-text-content h2 {
   font-family: "playfair-display", serif;
   font-weight: 400;
-  line-height: 3rem;
   font-style: normal;
   font-size: 5rem;
-  margin-bottom: 0.5rem;
+  line-height: 0.5;
+  margin-bottom: 0.8rem;
+  color: #1a1a1a;
 }
 
 .about-text-content p {
@@ -347,43 +346,62 @@ margin-top: 3rem;
   font-family: "quicksand", sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: 0.9rem;
+  font-size: 0.95rem;
   line-height: 1.5;
-  margin-top: 2rem;
+  margin-top: 1rem;
   letter-spacing: 0.03rem;
+  text-align: right; /* matchar rubrikens placering */
+}
+
+.titel p {
+    font-family: "quicksand", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 0.7rem;
+  line-height: 1.5;
+  margin-top: 1rem;
+  letter-spacing: 0.03rem;
+  text-align: right; /* matchar rubrikens placering */
 }
 
 /* Högersidan (om-text) */
 .about-description {
-  flex: 1 1 55%;
+  flex: 1 1 50%;
+  display: flex;
+  justify-content: flex-start;
 }
 
 .about-description p {
   color: #433737;
   font-family: "quicksand", sans-serif;
-  font-size: 0.95rem;
+  font-size: 1rem;
   line-height: 1.7;
   letter-spacing: 0.02rem;
-  margin-top: 3rem;
-  width: 70%;
+  max-width: 75%;
 }
 
 /* --- Responsivt (mobil / små skärmar) --- */
-@media (max-width: 768px) {
+@media (max-width: 900px) {
   .about-wrapper {
     flex-direction: column;
+    align-items: center;
     gap: 2rem;
+    text-align: center;
   }
 
   .about-text-content,
   .about-description {
     flex: 1 1 100%;
-    margin-right: 0;
+    align-items: center;
+    text-align: center;
   }
 
   .about-text-content h2 {
     font-size: 3rem;
-    line-height: 2.5rem;
+  }
+
+  .about-description p {
+    max-width: 100%;
   }
 }
 
@@ -450,142 +468,44 @@ button:hover {
   transition: all 0.3s ease;
   cursor: pointer;
   width: 150px;
-  text-align: center;
+  text-align: center !important;
   margin-top: 2rem;
-}
-
-.kontakt-knapp-modal {
-  display: inline-block;
-  padding: 1rem 2rem;
-  border: 0.01rem solid #876E6E;
-  border-radius: 0.05rem;
-  background-color: transparent;
-  color: #876E6E;
-  text-transform: uppercase;
-  font-family: "r-l-limo", sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  width: 150px;
-  text-align: center;
-  margin-top: 2rem;
-  margin-left: 4rem;
-}
-
-.kontakt-knapp-modal:hover {
-  background-color: #876E6E;
-  color: white;
-}
-.kontakt-knapp:hover {
-  background-color:#382E2E;
-  color: #fff;
-}
-.kontakt-container {
-  display: flex;
-  flex-direction: row;
-  gap: 2rem;
-}
-.kontakt-knapp2 {
-  display: inline-flex;         
-  justify-content: center;
-  align-items: center;       
-  text-align: center;           
-  margin: 3rem 0;
-  padding: 1rem 2rem;
-  border: 0.01rem solid #2D5562;
-  border-radius: 0.05rem;
-  box-shadow: 0 2px 4px rgba(158, 143, 106, 0.15);
-  width: 10rem;
-  background-color: transparent;
-  color: #433737;
-  text-transform: uppercase;
-  font-family: "r-l-limo", sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  cursor: pointer;
   white-space: nowrap;
 }
 
-
-.kontakt-knapp2:hover {
-  background-color: #2D5562;
-  color: #fff;
-}
-
-
-.kontakt-knapp3 {
-  display: inline-flex;         
-  justify-content: center;
-  align-items: center;       
-  text-align: center;           
-  margin: 3rem 0;
-  padding: 1rem 2rem;
-  border: 0.01rem solid #2D5562;
-  border-radius: 0.05rem;
-  box-shadow: 0 2px 4px rgba(158, 143, 106, 0.15);
-  width: 10rem;
-  background-color: transparent;
-  color: #2D5562;
-  text-transform: uppercase;
-  font-family: "r-l-limo", sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  cursor: pointer;
-  white-space: nowrap;
-}
-
-
-.kontakt-knapp3:hover {
-  background-color: rgba(214, 156, 156, 0.5);
-  color: #fff;
-}
-
-.kontakt-knapp4 {
-  display: block;
-  justify-content: right;
-  align-items: right;       
-  text-align: center;           
-  margin: 1.5rem 3rem;
-  padding: 1rem 1rem;
-  border-radius: 0.05rem;
-  border-color: #F0EBE5;
-  border-style: solid;
-  border-width: 0.01rem;
-  box-shadow: 0 2px 4px rgb(98, 90, 70, 0.2);
-  width: 10rem;
-  background-color: rgba(240, 235, 229, 0.2);
-  color: #fff;
-  text-transform: uppercase;
-  font-family: "r-l-limo", sans-serif;
-  font-weight: 600;
-  font-size: 16px;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  cursor: pointer
-}
-
-.kontakt-knapp4:hover {
-  background-color: #2D5562;
-}
-
-/* ======??????????????????=== Base (kan mixas med din befintliga stil) =========================== */
+/* ==================== Base (kan mixas med din befintliga stil) =========================== */
 :root{
   --bg:#0E0E0E;
   --text:#EAEAEA;
   --overlay: rgba(0,0,0,.85);
-  --badge:#D4AF37; /* guld/varm accent */
+  --badge:#D4AF37; 
 }
 
 .portfolio-section{
-  background:#fff; /* byt vid behov */
-  padding: clamp(2rem, 4vw, 4rem) 1rem;
+  background: #f5f5f5;
+  padding: 2rem 4rem;
 }
+
+
+.portfolio-title {
+  text-align: center;
+  font-family: "playfair-display", serif;
+  font-weight: 400;
+  font-size: 4rem; /* din önskade storlek */
+  margin: 3rem 0;
+  line-height: 2.8rem;
+  letter-spacing: 0.03rem;
+}
+
+/* Färger */
+.black-text {
+  color: #1a1a1a; /* svart */
+}
+
+.gold-text {
+  color: #D4AF37; /* eller den gula du använder i övriga designen */
+}
+
 
 .portfolio-grid{
   max-width: 1200px;
@@ -607,8 +527,8 @@ button:hover {
   position: relative;
   overflow: hidden;
   border-radius: 0px;
-  background:#000;
-  box-shadow: 0 10px 30px rgba(0,0,0,.15);
+  background:#fff;
+  box-shadow: 0 10px 30px rgba(0,0,0,.10);
 }
 
 .card img{
@@ -651,6 +571,7 @@ button:hover {
   font-family: "playfair-display", serif;
   font-weight:600;
   font-size: clamp(1.25rem, 2.2vw, 1.75rem);
+  letter-spacing: 0.03rem;
   line-height:1.2;
   margin:0 0 .25rem 0;
 }
@@ -833,101 +754,100 @@ font-style: normal;
 
 
 /* ============================== Footer ================= */
-.site-footer {
-  overflow: visible;
-  min-height: 12rem;
-  background-color: #2D2525;
-}
-
-.footer-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+.contact-footer {
+  background-color: #0E0E0E;
+  color: #F0EBE5;
   text-align: center;
-  padding: 2rem 1rem;
+  padding: 5rem 1rem 4rem;
 }
 
-.footer-nav {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 3rem;
+.footer-title {
+  font-family: "playfair-display", serif;
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  line-height: 2.5rem;
+  font-weight: 400;
+  color: #fff;
   margin-bottom: 1rem;
-  margin-top: 3rem;
 }
 
-.footer-nav a {
+.footer-title .highlight {
+  color: #D4AF37; /* Guldaccent */
+}
+
+.footer-subtext {
+  font-family: "quicksand", sans-serif;
+  font-size: 1rem;
+  color: #dcdcdc;
+  max-width: 600px;
+  margin: 0 auto 2.5rem;
+  line-height: 1.6;
+}
+
+.contact-info {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  font-family: "quicksand", sans-serif;
+  font-size: 0.95rem;
+  margin-bottom: 2rem;
+}
+
+.contact-link {
   color: #F0EBE5;
   text-decoration: none;
-  letter-spacing: 0.05rem;
-  font-size: 0.85rem;
-  font-weight: 600;
-  text-transform: uppercase;
-  position: relative;
-  font-family: "r-l-limo", sans-serif;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  transition: color 0.3s ease;
 }
 
-.footer-nav a::after {
-  content: '';
-  position: absolute;
-  left: 0;
-  bottom: -3px;
-  width: 0%;
-  height: 1px;
-  background-color: #F0EBE5;
-  transition: width 0.3s ease;
+.contact-link:hover {
+  color: #D4AF37;
 }
 
-.footer-nav a:hover::after {
-  width: 100%;
+.divider {
+  color: rgba(255, 255, 255, 0.3);
 }
 
-.footer-icons {
+.social-icons {
   display: flex;
   justify-content: center;
-  gap: 2rem;
-  margin-top: 1rem;
+  gap: 1rem;
 }
 
-.footer-icons img {
-  width: 24px;
-  height: 24px;
-  filter: grayscale(1);
-  transition: filter 0.3s ease, transform 0.3s ease;
-}
-
-.footer-icons a:hover img {
-  filter: grayscale(0);
-  transform: scale(1.1);
-}
-
-.footer-copy {
-  margin-top: 2rem;
-  font-size: 0.9rem;
-  opacity: 0.7;
-  color:#F0EBE5;
-}
-/*=============Till toppen=================*/
-.top-button {
-
-  display: inline-flex;
+.social {
+  color: #F0EBE5;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 6px;
+  width: 40px;
+  height: 40px;
+  display: flex;
   align-items: center;
   justify-content: center;
-  position: fixed;
-  bottom: 1.5rem;   
-  right: 1.25rem;    
-  width: 3.125rem;   
-  height: 3.125rem;  
-  cursor: pointer;
-  z-index: 1000;
+  transition: all 0.3s ease;
+}
+
+.social:hover {
+  border-color: #D4AF37;
+  color: #D4AF37;
+  transform: translateY(-3px);
+}
+
+/* Responsivt */
+@media (max-width: 600px) {
+  .footer-subtext {
+    font-size: 0.95rem;
+  }
+
+  .contact-info {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
 }
 
 
-.top-button img {
-  width: 40px;
-  height: auto;
-  width: 100%;
-  height: auto;
-}
 
 /* ===================== Media Queries ====================== */
 @media (max-width: 1024px) {
@@ -953,7 +873,7 @@ font-style: normal;
   .navbar > ul {
     display: none;
     flex-direction: column;
-    background-color: rgba(243, 240, 230, 0.92);
+    background-color: rgba(0, 0, 0, 0.8);
     padding: 1rem;
     border-radius: 0.05rem;
     position: absolute;
@@ -1006,9 +926,7 @@ font-style: normal;
   background-color: rgba(0, 0, 0, 0.9);
   width: 100%;
   min-height: 65vh;
-  display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
+
 }
 
 .intro-text {
@@ -1017,13 +935,6 @@ font-style: normal;
   margin: 2rem 1rem 2rem 1rem;
 }
 
-.intro-text h1 { 
-  font-size: 5rem;
-  color: #F0EBE5;
-font-family: "playfair-display", serif;
-font-weight: 400;
-font-style: normal;
-}
 
 .intro-text p {
   font-size: 1.2rem;
@@ -1054,12 +965,14 @@ font-style: normal;
   }
 
   .intro-text h1 {
-    font-size: 3rem;
+    font-size: 1.8rem;
+    line-height: 2.8rem;
     text-align: center;
   }
 
   .intro-text p {
-    margin: 1rem auto;
+    margin-top: 6rem;
+    line-height: 4rem;
     max-width: 28rem;
     font-size: 1.1rem;
     text-align: center;
@@ -1087,7 +1000,8 @@ font-style: normal;
   .about-section h1 {
     writing-mode: horizontal-tb;
     transform: none;
-    font-size: 2.5rem;
+    font-size: 3rem;
+    line-height: 0.5rem;
     text-align: center;
     margin: 0 auto;
 
@@ -1104,24 +1018,6 @@ font-style: normal;
     font-size: 1rem;
     text-align: center;
   }
-
-  .vertical-line {
-    display: none;
-  }
-
-  .why-us-columns {
-    flex-direction: column;
-    gap: 1rem;
-  }
-
-  .why-us-column {
-    max-width: 100%;
-  }
-
-  .why-us-title {
-    text-align: left;
-  }
-
 
   .footer-nav {
     gap: 1.5rem;
@@ -1229,21 +1125,5 @@ font-style: normal;
     top: 0.8rem;
     z-index: 1001;
   }
-
-  .process-section {
-  padding: 4rem 2rem;
-  background-image: url(img/bg6.jpg);
-  background-size: cover;
-  text-align: center;
-
-}
-.step-indicators {
-  display: flex;
-  justify-content: center;
-  gap: 0.5rem;
-  margin-top: 1rem;
-}
-
-
 
 }

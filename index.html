@@ -4,69 +4,58 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-  
   <title>Créya</title>
+
+  <!-- Typsnitt -->
   <link rel="stylesheet" href="https://use.typekit.net/sft1pux.css">
   <link rel="stylesheet" href="https://use.typekit.net/bdr6bzr.css">
+
+  <!-- Ikoner -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css">
+
+  <!-- Din CSS -->
   <link rel="stylesheet" href="style.css" />
-  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
- 
 
-
-  <script src="script.js" defer></script>
+  <!-- (Valfri) Chart.js om du verkligen använder den -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js" defer></script>
 </head>
+
 <body>
-   <div id="introOverlay" class="intro-overlay" aria-hidden="false" role="dialog" aria-label="Introvideo">
-    <video id="introVideo"
-           class="intro-video"
-           muted
-           playsinline
-           preload="auto"
-           src="/media/intro.mp4"
-           poster="/media/intro-poster.jpg">
-    </video>
-    <button id="skipBtn" class="skip-btn" type="button">Hoppa över</button>
-  </div>
-
-
 <header class="site-header">
   <div class="container">
     <div class="header-inner">
-
-<a href="index.html" style="display: contents;">
-   <img src="img/cre.svg" alt="créya-logotyp" class="header-logo" />
-</a>
+      <a href="index.html" style="display: contents;">
+        <img src="img/cre.svg" alt="créya-logotyp" class="header-logo" />
+      </a>
 
       <nav class="navbar">
         <div class="menu-toggle" id="mobile-menu">
           <span></span><span></span><span></span>
         </div>
         <ul id="navbar-links">
-          <li><a href="about.html">about<a></li>
-          <li><a href="gi.html">contact</a></li>
-      
-        <!-- <li><a href="webb.html">Webb</a></li>
-          <li><a href="ill.html">Illustration</a></li>-->
+          <!-- STÄNG ANKAR-TAGGEN KORREKT -->
+          <li><a href="about.html">about</a></li>
+                <li><a href="mailto:linnea@creya.se?subject=Kontakt%20via%20webbplats&body=Hej%20Linnéa,">CONTACT</a></li>
         </ul>
       </nav>
     </div>
+  </div>
 </header>
 
-  <div class="header-spacer" aria-hidden="true"></div>
+<div class="header-spacer" aria-hidden="true"></div>
 
-  <!-- Hero Section -->
-  <section class="hero-section">
-    <div class="hero-content">
-      <div class="intro-text">
-        <h1> <span style="color: white;">Creative</span><br> <span style="color: #D4AF37;">expression</span></h1>
-        <p>Crafting memorable brand experiences<br> through bold design</p>
-<button class="kontakt-knapp" id="openFormButton">CONTACT</button>
-      </div>
+<!-- Hero Section -->
+<section class="hero-section">
+  <div class="hero-content">
+    <div class="intro-text">
+      <h1><span style="color: white;">Creative</span><br><span style="color: #D4AF37;">expression</span></h1>
+      <p>Crafting memorable brand experiences<br> through bold design</p>
+     <a href="#portfolio-section" class="kontakt-knapp">VIEW WORK</a>
     </div>
+  </div>
+</section>
 
-  </section>
-
-  <!-- Om oss -->
+<!-- About -->
 <section class="about-section" id="about">
   <div class="about-wrapper">
     <div class="about-text-content">
@@ -74,31 +63,39 @@
         <span style="color: white;">About</span><br>
         <span style="color: #D4AF37;">me</span>
       </h2>
-      <p>
-        Graphic Design & Web Development<br>
-        Bachelor degree expected in 2026
-      </p>
+      <div class="titel">
+        <p>
+          Graphic Design & Web Development<br>
+          Bachelor degree expected in 2026
+        </p>
+      </div>
     </div>
 
     <div class="about-description">
       <p>
-        I see creativity everywhere and instinctively know what feels right visually.
-Creation has always been my language, a way to make sense of the world and share stories through form and color. Design is communication.
+        I am Linnéa. I see creativity everywhere and instinctively know what feels right visually.
+        Creation has always been my language, a way to make sense of the world and share stories through form and color.
+        <i>Design is communication</i>.
       </p>
     </div>
   </div>
 </section>
-<!-------------------------------nya kort--------------------------->
-<section class="portfolio-section">
-  <div class="portfolio-grid">
 
+<!------------------------------- Portfolio-kort --------------------------->
+<section class="portfolio-section" id="portfolio-section">
+  <h2 class="portfolio-title">
+    <span class="black-text">Selected</span><br>
+    <span class="gold-text">Works</span>
+  </h2>
+
+  <div class="portfolio-grid">
     <!-- Card 1 -->
     <article class="card" data-images="img/poster-1a.jpg,img/poster-1b.jpg,img/poster-1c.jpg">
-      <img src="img/poster-1a.jpg" alt="Typography Poster – series">
+      <img src="img/box_mockup.jpg" alt="Typography Poster – series">
       <div class="overlay">
-        <span class="badge">PRINT</span>
-        <h3>Typography Poster</h3>
-        <p>Experimental typographic work</p>
+        <span class="badge">Packaging design</span>
+        <h3>Liquor box for Lilla Ornas Gardsbutik</h3>
+        <p>Experimental packaging work</p>
       </div>
       <button class="card-link" aria-label="Open gallery"></button>
     </article>
@@ -116,7 +113,7 @@ Creation has always been my language, a way to make sense of the world and share
 
     <!-- Card 3 -->
     <article class="card" data-images="img/marble-1.jpg,img/marble-2.jpg">
-      <img src="img/marble-1.jpg" alt="Black & white marble shapes">
+      <img src="img/superstars.jpg" alt="Black & white marble shapes">
       <div class="overlay">
         <span class="badge">ART DIRECTION</span>
         <h3>Monochrome Study</h3>
@@ -127,11 +124,11 @@ Creation has always been my language, a way to make sense of the world and share
 
     <!-- Card 4 -->
     <article class="card" data-images="img/brand-1.jpg,img/brand-2.jpg">
-      <img src="img/brand-1.jpg" alt="Brand system preview">
+      <img src="img/printhumpe.jpg" alt="Brand system preview">
       <div class="overlay">
-        <span class="badge">BRAND</span>
-        <h3>Identity System</h3>
-        <p>Elegant, editorial feel</p>
+        <span class="badge">ILLUSTRATION</span>
+        <h3>Childrens art</h3>
+        <p>Water color prints</p>
       </div>
       <button class="card-link" aria-label="Open gallery"></button>
     </article>
@@ -157,11 +154,10 @@ Creation has always been my language, a way to make sense of the world and share
       </div>
       <button class="card-link" aria-label="Open gallery"></button>
     </article>
-
   </div>
 </section>
 
-<!-- Lightbox -->
+<!-- Lightbox (en per sida) -->
 <div class="lightbox" id="lightbox" aria-hidden="true">
   <button class="lb-close" aria-label="Close">×</button>
   <button class="lb-nav prev" aria-label="Previous">‹</button>
@@ -169,41 +165,30 @@ Creation has always been my language, a way to make sense of the world and share
   <button class="lb-nav next" aria-label="Next">›</button>
 </div>
 
+<footer class="contact-footer">
+  <div class="contact-container">
+    <h2 class="footer-title">
+      Let’s <span class="highlight">Create</span><br> Together
+    </h2>
+    <p class="footer-subtext">
+      Have a project in mind? I’d love to hear about it!
+    </p>
 
-<!------------------------------------- FEATURE CARDS ---------------
-  <h2 class="feature">
-        <span style="color: white;">Selected</span><br>
-        <span style="color: #D4AF37;">work</span>
-      </h2>
-<section class="card-container">
-  <div class="feature-card">
-    <img src="img/bg3.jpg" alt="Bild 1">
-    <a href="ill.html" class="feature-card-content-link">
-      <div class="feature-card-content">
-        <h4>VISUELL STORYTELLING</h4>
-        <h2>ILLUSTRATION</h2>
-        <p></p>
-      </div>
-    </a>
-  </div>
-
-  <div class="feature-card">
-    <img src="img/bild6.jpg" alt="Bild 4">
-    <a href="ill.html" class="feature-card-content-link">
-    <div class="feature-card-content">
-      <h4>VISUELL KOMMUNIKATION</h4>
-      <h2>GRAFISK DESIGN</h2>
-      <p></p>
+    <div class="contact-info">
+      <a href="mailto:linnea@creya.se" class="contact-link">
+        <i class="fa-solid fa-envelope"></i> linnea@creya.se
+      </a>
     </div>
-    </a>
-  </div>
-</section>
--->
 
+    <div class="social-icons">
+      <a href="#" class="social"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#" class="social"><i class="fa-brands fa-behance"></i></a>
+      <a href="#" class="social"><i class="fa-brands fa-linkedin-in"></i></a>
+    </div>
+  </div>
 </footer>
-  <a href="#top" class="top-button">
-  <img src="img/top.svg" alt="Till toppen" />
-</a>
-</div> <!-- End of page-container -->
+
+<!-- Ladda din JS sist -->
+<script src="script.js"></script>
 </body>
 </html>
